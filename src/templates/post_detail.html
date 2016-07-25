@@ -24,18 +24,15 @@
     <div class="post-detail-item">
       {{ instance.get_markdown }}
     </div>
-    <hr/>
-    <br/>
     <div class="">
       <p class="lead"> Comments </p>
       <hr>
       {% for comment in comments %}
-      <div class="">
-        {{ comment.content }}
-        <p> <em>Via: {{ comment.user }} {{ comment.timestamp | timesince }}</em> </p>
-        <hr>
-      </div>
-
+      <blockquote>
+        <p> {{ comment.content }} </p>
+        <footer> via: {{ comment.user }} | {{ comment.timestamp | timesince }} ago </footer>
+      </blockquote>
+      <hr>
       {% endfor %}
     </div>
 
